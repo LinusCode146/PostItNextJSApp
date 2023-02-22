@@ -7,10 +7,7 @@ import Post from '../components/Post';
 import {PostType} from "@/app/types/Posts";
 
 //Fetch all posts
-const allPosts = async () => {
-    const response = await axios.get('/api/posts/getPosts')
-    return response.data;
-}
+
 
 export default function HomePage() {
     const {data, error, isLoading} = useQuery<PostType[]>({
@@ -29,4 +26,9 @@ export default function HomePage() {
             ))}
         </main>
     )
+}
+
+async function allPosts() {
+    const response = await axios.get('/api/posts/getPosts')
+    return response.data;
 }
